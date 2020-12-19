@@ -1,0 +1,30 @@
+1. Tienes correo.
+2. Carta escrita por Miguelina pidiendo ayuda para una misión top secret. ¿Aceptas la misión?
+- Si -> continua
+- No -> sosa
+3. ¡Perfecto! Necesito que vengas al castillo. ¡Pero no se lo digas a nadie! Tenemos más seguridad desde que me hechizaron, así que te preguntarán la contraseña. Tu solo debes saber que "la piña es azul". Carta se autodestruirá en 3, 2, 1...
+4. Mapa del reino donde puedes ir a lugares. Solo el castillo está permitido
+5. Minijuego de la contraseña para entrar al castillo
+6. Miguelina recibe a Gala y le explica la misión: descubrir quién la hechizó. Para ello, debe ir primero a la infermería de palacio.
+7. Mapa del palacio con diversos sitios y solo puede escoger ir a la infermería
+8. Minijuego de médicos, ya que solo los médicos pueden entrar a la infermería
+9. María y Teresa reciben a Gala y dicen que el informe médico dice que Miguel fue hechizado por culpa de unas pepitas de limón. Recomiendan que vayamos a la secretaría del palacio para ver qué hizo Miguel ese día y saber donde se podría haber contaminado.
+10. Mapa del palacio -> secretaría
+11. Minijuego de organizar el calendario
+12. Mamá le cuenta a Gala el horario de Miguel del día en concreto:
+- Para desayunar, Miguel se reunió con Conchi y Sofi ya que ellas le proponen aprobar una ley en contra de los dragones. Miguel se negó, así que podrían estar enfadadas con él.
+- ¡El cumple de alguien está cerca! Y como es costumbre en los alcañices, se está organizando un baile. Teresina y Paco son los encargados, pero necesitaban la ayuda de Miguel. Pero él tenía hambre, así que decidio pedir olivas para el aperitivo! Debido a su presencia, Teresina no fue capaz de ayudar con el baile así que la reunión fue en vano.
+- La comida estaba reñida. Antonio quería hacer paella, pero Fernando quería hacer barbacoa. Al final Miguel escogió a uno de los dos, así que el otro podría haberse enfadado y haberlo envenenado.
+- Después de comer, Xavi, Héctor y Miguel participaron en un torneo de la play 5. Miguel consiguió ganar pese a las trampas de Xavi, así que Héctor y Xavi podrían estar enfadados por haber perdido. Podrían haber envenenado la cocacola con limón que se sirvió durante el torneo...
+- Para merendar, Jordi y Blai prepararon un pastel de limón. Sospechoso, verdad? A saber que le puede estar pasando a Blai por la cabeza!
+- Por último, para la cena Miguelina tuvo una reunión virtual con Alba y Miguel. Los hermanos se enfadaron porque Miguelina quería quedarse toda la herencia.
+13. Mamá le da dos pistas a Gala con las cuales debería descartar a dos culpables:
+- Virtualmente no puedes envenenar a la gente -> Alba y Miguel descartados
+- Miguelina ya no bebe cocacola -> Xavi y Hector descartados
+14. Mamá le dice a Gala que debería ir a visitar al resto de miembros para averiguar qué ocurrió.
+15. Mapa del castillo. Esta vez hay plena libertad. Salen tres nuevas salas: cocina, jardín y set de rodaje. Cada vez que vaya a un sitio, un minijuego empezará.
+16. Cocina: Antonio y Fernando explican que Miguelina no escogió el menú, sino que una de las comidas no las pudieron hacer ya que no había suficientes ingredientes. Pero no se acuerdan de qué comieron. Aunque tienen la lista de la compra. Minijuego de ingredientes donde clasifican cada ingrediente para paella o barbacoa. No tenían arroz para la paella, así que al final comieron barbacoa. Pero entre los ingredientes de la barbacoa, no hay limón así que no podían haber sido ellos.
+17. Jardín. Minijuego de dragones. Al final resulta que Miguelina enseñó lo buenos que pueden ser los dragones a Sofi y Conchi así que ya no querían poner la ley. COmo no tienen motivo para estar enfadadas, pues no habían sido ellas.
+18. Set de rodaje: Teresina y Paco te piden ayuda para organizar el baile. Minijuego de musica/baile. Al final te cuentan que no había limones en Vilanova, así que comieron berberechos sin limón y no podrían haber sido ellos.
+19. Ya has revisado todos los grupos menos uno: Jordi y Blai. Vas a interrogarles y Jordi te dice que él no sabe nada, que él estaba haciendo el pastel con mucho cuidado y Blai le ayudaba. Entonces ves que Blai tiene un juguete de un limón. Y dices que tiene que ser eso! Llamas a María y Teresa para que saquen una muestra y dicen que si, que el ADN coincide. Así que Blai envenenó a Miguelina
+20. Miguel dice que Blai lo hizo sin mal alguno, y que lesigue queriendo mucho. Foto de los dos abrazados.

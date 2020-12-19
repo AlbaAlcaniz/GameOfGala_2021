@@ -1,14 +1,9 @@
 import tkinter as tk
 import pygame
 import sys, os
-from turtle import RawTurtle, TurtleScreen
 
 import data
-from memory import main_memory
-from labyrinth import main_labyrinth
-from pipelines import main_pipelines
-from crossword import main_crossword
-from futbolseries import main_futbol, main_series
+from open_mail import main_mail
 
 
 def resource_path(relative_path):
@@ -58,12 +53,30 @@ class InitialFrame(BasicFrame):
             img_path (str): path of the image to be displayed
         """
         tk.Frame.__init__(self, master)
-        self.display_image(img_path)
+        # self.display_image(img_path)
+        self.display_text()
         self.pack()
-        self.img_yes = tk.PhotoImage(file=resource_path('figures/0_1_si.png'))
-        self.img_no = tk.PhotoImage(file=resource_path('figures/0_1_no.png'))
+        self.img_yes = tk.PhotoImage(file=resource_path('figures/0_2_si.png'))
+        self.img_no = tk.PhotoImage(file=resource_path('figures/0_2_no.png'))
         self.yes_no_button('left')
         self.yes_no_button('right')
+
+    def display_text(self):
+        """Display the message written in the letter by the princess.
+        Export first the content of the letter from a txt and then display it.
+        """
+        content_file = open('content_letter.txt', 'r', encoding='utf8')
+        content = content_file.read()
+        content_file.close()
+
+        # text = tk.Frame(self,text = content, height=50, width=200)
+        f = tk.Frame(self, height=200, width=400)
+        f.pack()
+        text = tk.Label(f, text = content,font=("Gabriola", 16))
+        # text.config(,font=("Gabriola", 16),
+        #     justify = tk.LEFT,wraplength=100)
+        # text.pack(fill=tk.BOTH)
+        text.pack_propagate(False)
 
     def yes_no_button(self, button_side):
         """Creates a button which displays the YES or NO options depending on
@@ -89,10 +102,10 @@ class InitialFrame(BasicFrame):
         self.b_no.destroy()
         self.b_yes.destroy()
 
-        pygame.mixer.music.load(resource_path('audio/0_monkey.wav'))
-        pygame.mixer.music.play()
+        # pygame.mixer.music.load(resource_path('audio/0_monkey.wav'))
+        # pygame.mixer.music.play()
 
-        self.img_panel = tk.PhotoImage(file=resource_path('figures/0_1_sosa.png'))
+        self.img_panel = tk.PhotoImage(file=resource_path('figures/0_3_sosa.png'))
         self.panel.configure(image=self.img_panel)
 
 
@@ -261,49 +274,55 @@ def main_game():
     """Main function for the game created for my cousin. This function relates
     all the classes previously defined and the minigames created.
     """
+    # main_mail()
+
     root = tk.Tk()
     root.protocol("WM_DELETE_WINDOW",on_closing)
-    root.title('El rescate de la princesa Miguelina')
-    pygame.mixer.init()
+    root.title('La carta de Miguelina')
 
-    app = InitialFrame(root, resource_path('figures/0_1_help.png'))
+    # root.title('¿Quién envenenó a la princesa Miguelina?')
+
+    # Initialize the mixer for the music
+    # pygame.mixer.init()
+
+    app = InitialFrame(root, resource_path('figures/0_2_letter.png'))
     app.mainloop()
 
     root.state('zoomed')
     
-    correctSound = pygame.mixer.Sound(resource_path('audio/correct.wav'))
+    # correctSound = pygame.mixer.Sound(resource_path('audio/correct.wav'))
 
-    for img_path in data.image_paths.keys():
-        if img_path == 'memory_game':
-            main_memory()
-        elif img_path == 'futbol_game':
-            main_futbol(root)
-        elif img_path == 'series_game':
-            main_series(root)
-        elif img_path == 'labyrinth_game':
-            main_labyrinth(root)
-        elif img_path == 'pipelines_game':
-            main_pipelines()
-        elif img_path == 'crossword_game':
-            main_crossword(root)
-        elif img_path.startswith('move'):
-            idx = int(img_path[-1])
-            initial_point = data.destinations[idx][0]
-            end_point = data.destinations[idx+1][0]
-            msg = data.destinations[idx][1]
-            who_path = 'figures/0_0_' + data.destinations[idx][2] + '.png'
-            m = MapTransitions(root, msg, resource_path(who_path), \
-                initial_point, end_point)
-            m.mainloop()
-        elif img_path.startswith('audio'):
-            pygame.mixer.music.load(resource_path(img_path))
-            pygame.mixer.music.play(-1)
-        else:
-            if 'congrats' in img_path:
-                correctSound.play()
-            img_text = data.image_paths[img_path]
-            app = FigureFrame(root, resource_path(img_path), img_text)
-            app.mainloop()
+    # for img_path in data.image_paths.keys():
+    #     if img_path == 'memory_game':
+    #         main_memory()
+    #     elif img_path == 'futbol_game':
+    #         main_futbol(root)
+    #     elif img_path == 'series_game':
+    #         main_series(root)
+    #     elif img_path == 'labyrinth_game':
+    #         main_labyrinth(root)
+    #     elif img_path == 'pipelines_game':
+    #         main_pipelines()
+    #     elif img_path == 'crossword_game':
+    #         main_crossword(root)
+    #     elif img_path.startswith('move'):
+    #         idx = int(img_path[-1])
+    #         initial_point = data.destinations[idx][0]
+    #         end_point = data.destinations[idx+1][0]
+    #         msg = data.destinations[idx][1]
+    #         who_path = 'figures/0_0_' + data.destinations[idx][2] + '.png'
+    #         m = MapTransitions(root, msg, resource_path(who_path), \
+    #             initial_point, end_point)
+    #         m.mainloop()
+    #     elif img_path.startswith('audio'):
+    #         pygame.mixer.music.load(resource_path(img_path))
+    #         pygame.mixer.music.play(-1)
+    #     else:
+    #         if 'congrats' in img_path:
+    #             correctSound.play()
+    #         img_text = data.image_paths[img_path]
+    #         app = FigureFrame(root, resource_path(img_path), img_text)
+    #         app.mainloop()
 
 
 main_game()
