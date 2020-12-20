@@ -1,16 +1,13 @@
-from tkinter import *
+# write tkinter as Tkinter to be Python 2.x compatible
+import tkinter as tk
 
-root = Tk()
-root.title("hello")
+root = tk.Tk()
 
-Message(root, text=48*'xxxxx ').grid(row=0, column=0, columnspan=3)
+img = tk.PhotoImage(file='figures/1_0_kingdom_map.gif')
+panel = tk.Label(root,image=img)
+panel.pack()
 
-Label(root, text='Name:').grid(row=1, column=0)
-Entry(root, width=50).grid(row=1, column=1)
-Button(root, text="?").grid(row=1, column=2)
-
-Button(root, text="Left").grid(row=2, column=0)
-Button(root, text="Center").grid(row=2, column=1)
-Button(root, text="Right").grid(row=2, column=2)
+# castle_button = tk.Button(panel)
+# castle_button.pack()
 
 root.mainloop()

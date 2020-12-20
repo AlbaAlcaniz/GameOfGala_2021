@@ -16,7 +16,7 @@ def resource_path(relative_path):
 class MainScreen():
     def __init__(self,screen_size):
         self.screen = pygame.display.set_mode(screen_size,pygame.RESIZABLE,0,32)
-        self.bg_img = pygame.image.load(resource_path('figures/0_1_youhavemail.png'))
+        self.bg_img = pygame.image.load(resource_path('figures/0_1_you_have_mail.png'))
 
     def initial_setup(self):
         pygame.display.update()
@@ -29,7 +29,7 @@ class MainScreen():
         else:
             return False
 
-def main_mail():
+def main_letter():
     """Main function for the
     """
     screen_size = [400,283]
@@ -54,4 +54,4 @@ def main_mail():
                     pygame.display.quit()
 
 
-# main_mail()
+# main_letter()

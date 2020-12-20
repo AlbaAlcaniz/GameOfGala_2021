@@ -3,7 +3,7 @@ import pygame
 import sys, os
 
 import data
-from open_mail import main_mail
+from open_letter import main_letter
 
 
 def resource_path(relative_path):
@@ -27,7 +27,7 @@ class BasicFrame(tk.Frame):
         Args:
             img_path (str): path of the image to be displayed
         """
-        self.img_panel = tk.PhotoImage(file=img_path)
+        self.img_panel = tk.PhotoImage(file=resource_path(img_path))
         self.panel = tk.Label(self,image=self.img_panel)
         self.panel.pack()
 
@@ -44,7 +44,7 @@ class InitialFrame(BasicFrame):
     help on the mission, or reject it. Inherited class from the just defined
     BasicFrame.
     """
-    def __init__(self, master, img_path):
+    def __init__(self, master):
         """Initialize the frame by setting the yes and no buttons, and by
         displaying the image where the help is asked for.
 
@@ -53,7 +53,6 @@ class InitialFrame(BasicFrame):
             img_path (str): path of the image to be displayed
         """
         tk.Frame.__init__(self, master)
-        # self.display_image(img_path)
         self.display_text()
         self.pack()
         self.img_yes = tk.PhotoImage(file=resource_path('figures/0_2_si.png'))
@@ -65,18 +64,14 @@ class InitialFrame(BasicFrame):
         """Display the message written in the letter by the princess.
         Export first the content of the letter from a txt and then display it.
         """
-        content_file = open('content_letter.txt', 'r', encoding='utf8')
-        content = content_file.read()
-        content_file.close()
+        content = data.letter[0]
 
-        # text = tk.Frame(self,text = content, height=50, width=200)
-        f = tk.Frame(self, height=200, width=400)
-        f.pack()
-        text = tk.Label(f, text = content,font=("Gabriola", 16))
-        # text.config(,font=("Gabriola", 16),
-        #     justify = tk.LEFT,wraplength=100)
-        # text.pack(fill=tk.BOTH)
-        text.pack_propagate(False)
+        self.text_frame = tk.Frame(self, height=300, width=400)
+        self.text_frame.pack()
+        self.text_frame.pack_propagate(0)
+        self.text = tk.Label(self.text_frame,text=content,font=('Gabriola', 16),
+            justify=tk.LEFT,wraplength=400)
+        self.text.pack()
 
     def yes_no_button(self, button_side):
         """Creates a button which displays the YES or NO options depending on
@@ -88,8 +83,8 @@ class InitialFrame(BasicFrame):
         f = tk.Frame(self, height=50, width=200)
         f.pack(side = button_side)
         if button_side == 'left':
-            self.b_yes = tk.Button(f, image=self.img_yes, 
-                                    command=self.destroy_frame)
+            self.b_yes = tk.Button(f, image=self.img_yes,
+                                    command=self.update_text)
             self.b_yes.pack(expand=1)
         else:
             self.b_no = tk.Button(f, image=self.img_no, command=self.sosa)
@@ -99,14 +94,44 @@ class InitialFrame(BasicFrame):
         """Function in case the player doesn't want to help in which the player
         is called boring and the game is closed
         """
-        self.b_no.destroy()
-        self.b_yes.destroy()
+        for child in self.winfo_children():
+            child.destroy()
+
+        self.display_image('figures/0_3_sosa.png')
 
         # pygame.mixer.music.load(resource_path('audio/0_monkey.wav'))
         # pygame.mixer.music.play()
 
-        self.img_panel = tk.PhotoImage(file=resource_path('figures/0_3_sosa.png'))
-        self.panel.configure(image=self.img_panel)
+    def update_text(self):
+        """Display the message written in the letter by the princess.
+        Export first the content of the letter from a txt and then display it.
+        """
+        content = data.letter[1]
+        self.text.configure(text=content)
+        self.b_yes.destroy()
+        self.img_vamos = tk.PhotoImage(file=resource_path('figures/0_4_vamos.png'))
+        self.b_no.configure(image=self.img_vamos, command=self.auto_destruction)
+
+    def auto_destruction(self):
+        self.text_frame.configure(height=100)
+
+        content = data.letter[2]
+        self.text.configure(text=content,justify=tk.CENTER,font=('Ubuntu', 16))
+        self.b_no.destroy()
+
+        self.countdown_label = tk.Label(self)
+        self.countdown_label.pack()
+        self.countdown(3)
+
+    def countdown(self,count):
+        # change text in label
+        self.countdown_label.configure(text=count,font=('Ubuntu', 28),fg='red')
+
+        if count > 0:
+            # call countdown again after 1000ms (1s)
+            self.after(1000, self.countdown, count-1)
+        if count == 0:
+            self.destroy_frame()
 
 
 class FigureFrame(BasicFrame):
@@ -152,6 +177,18 @@ class FigureFrame(BasicFrame):
         self.b_next = tk.Button(f, image=self.img_next, \
             command=self.next_text)
         self.b_next.pack(expand=1)
+
+
+class Map(BasicFrame):
+    def __init__(self, master):
+        """Initialize the frame and display on it the image and the next button
+
+        Args:
+            master (tkinter.tk): tkinter window where the frames are displayed
+            img_path (str): path of the image to be displayed
+        """
+        tk.Frame.__init__(self, master)
+        self.pack()
 
 
 class MapTransitions(tk.Frame):
@@ -285,10 +322,12 @@ def main_game():
     # Initialize the mixer for the music
     # pygame.mixer.init()
 
-    app = InitialFrame(root, resource_path('figures/0_2_letter.png'))
+    app = InitialFrame(root)
     app.mainloop()
 
     root.state('zoomed')
+
+
     
     # correctSound = pygame.mixer.Sound(resource_path('audio/correct.wav'))
 

@@ -1,3 +1,9 @@
+letter = [
+'Querida Gala, \n\nDebido a la gran ayuda que me prestaste justo hace un año, he pensado en pedirte tus servicios una vez más. Así que tengo una misión para ti. ¿Me podrás ayudar?',
+'¡Perfecto! Ven a palacio cuando estés lista para que te explique la misión.\nDebido a los acontecimientos de hace un año, hemos aumentado la seguridad en palacio. Para entrar, solo necesitas saber que la piña es azul.\n\nSaludos royales,\nPrincesa Miguelina',
+'Debido a motivos de seguridad, esta carta se autodestruirá en'
+]
+
 image_paths = {
     'audio/castle.wav': [],
     'figures/0_2_miguelina.png': [
