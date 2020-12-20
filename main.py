@@ -4,6 +4,7 @@ import sys, os
 
 import data
 from open_letter import main_letter
+from kingdom_map import main_kingdom_map
 
 
 def resource_path(relative_path):
@@ -311,9 +312,10 @@ def main_game():
     """Main function for the game created for my cousin. This function relates
     all the classes previously defined and the minigames created.
     """
-    # main_mail()
+    main_letter()
 
     root = tk.Tk()
+    root.eval('tk::PlaceWindow . center')
     root.protocol("WM_DELETE_WINDOW",on_closing)
     root.title('La carta de Miguelina')
 
@@ -327,7 +329,7 @@ def main_game():
 
     root.state('zoomed')
 
-
+    main_kingdom_map()
     
     # correctSound = pygame.mixer.Sound(resource_path('audio/correct.wav'))
 

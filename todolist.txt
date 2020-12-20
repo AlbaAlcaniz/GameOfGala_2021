@@ -1,0 +1,5 @@
+Place the kingdom map on full screen.
+Center pygame windows (open letter, kingdom map, etc)
+
+Posibles juegos:
+- Crucigrama

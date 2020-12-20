@@ -4,6 +4,18 @@ letter = [
 'Debido a motivos de seguridad, esta carta se autodestruirá en'
 ]
 
+kingdom_map_positions = {
+    'Balloon consulting': [18,1,83,161],
+    'Hector': [407,127,456,209],
+    'Castillo': [446,226,528,338],
+    'Laberinto': [458,475,677,558],
+    'Villafoto': [212,311,269,406],
+    'Sofi': [157,112,210,188],
+    'Tren': [554,32,621,122],
+    'Abandonada': [30,220,87,320],
+}
+
+
 image_paths = {
     'audio/castle.wav': [],
     'figures/0_2_miguelina.png': [
